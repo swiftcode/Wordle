@@ -24,7 +24,7 @@ class ViewController: UIViewController {
         setupLayout()
         setupActions()
 
-        //box.setBackgroundColor(to: UIColor(named: "wordleYellow")!)
+        box.setBackgroundColor(to: .initial)
     }
 
     //MARK: - Setup and Layout

@@ -13,10 +13,22 @@ import UIKit
  yellow: 195, 170, 87
  */
 
+//TODO: Phase this out and replace with GuessValue
 enum BoxColor {
     case initial
     case correct
-    case semiCorrect
+    case semicorrect
+    case incorrect
+
+    init() {
+        self = .initial
+    }
+}
+
+enum GuessValue {
+    case initial
+    case correct
+    case semicorrect
     case incorrect
 
     init() {
@@ -44,6 +56,7 @@ class Box: UITextField {
     //MARK: - Setup and Layout
     private func setupView() {
         textColor = .black
+        font = UIFont.preferredFont(forTextStyle: .largeTitle)
         backgroundColor = .white
         borderStyle = .line
         textAlignment = .center
@@ -62,24 +75,43 @@ class Box: UITextField {
 
     func setFontColor(to color: BoxColor) {
         switch color {
-            case .correct, .semiCorrect, .incorrect:
+            case .correct, .semicorrect, .incorrect:
                 self.textColor = .white
             default:
                 self.textColor = .black
         }
     }
 
-    func setBackgroundColor(to color: UIColor) {
-        self.backgroundColor = color
+    func setBackgroundColor(to guess: GuessValue) {
 
-        switch color {
-            case UIColor(named: "wordleGreen"):
+        switch guess {
+            case .correct:
+                backgroundColor = UIColor(named: "wordleGreen")
                 self.setFontColor(to: .correct)
-            case UIColor(named: "wordleYellow"):
-                setFontColor(to: .semiCorrect)
-            case UIColor(named: "wordleGrey"):
+            case .semicorrect:
+                backgroundColor = UIColor(named: "wordleYellow")
+                setFontColor(to: .semicorrect)
+            case .incorrect:
+                backgroundColor = UIColor(named: "wordleGrey")
                 setFontColor(to: .incorrect)
             default:
+                setFontColor(to: .initial)
+        }
+    }
+
+    func setGuess(to guess: GuessValue) {
+        switch guess {
+            case .correct:
+                setBackgroundColor(to: .correct)
+                setFontColor(to: .correct)
+            case .semicorrect:
+                setBackgroundColor(to: .semicorrect)
+                setFontColor(to: .semicorrect)
+            case .incorrect:
+                setBackgroundColor(to: .incorrect)
+                setFontColor(to: .incorrect)
+            default:
+                setBackgroundColor(to: .initial)
                 setFontColor(to: .initial)
         }
     }
