@@ -1,5 +1,5 @@
 //
-//  Box.swift
+//  BoxView.swift
 //  Wordle
 //
 //  Created by mpc on 4/18/22.
@@ -36,7 +36,7 @@ enum GuessValue {
     }
 }
 
-class Box: UITextField {
+class LetterView: UITextField {
 
     var boxColor = BoxColor()
 
@@ -73,8 +73,8 @@ class Box: UITextField {
 
     }
 
-    func setFontColor(to color: BoxColor) {
-        switch color {
+    func setFontColor(to guess: GuessValue) {
+        switch guess {
             case .correct, .semicorrect, .incorrect:
                 self.textColor = .white
             default:
@@ -84,39 +84,30 @@ class Box: UITextField {
 
     func setBackgroundColor(to guess: GuessValue) {
 
+        setFontColor(to: guess)
+
         switch guess {
             case .correct:
                 backgroundColor = UIColor(named: "wordleGreen")
-                self.setFontColor(to: .correct)
             case .semicorrect:
                 backgroundColor = UIColor(named: "wordleYellow")
-                setFontColor(to: .semicorrect)
             case .incorrect:
                 backgroundColor = UIColor(named: "wordleGrey")
-                setFontColor(to: .incorrect)
             default:
                 setFontColor(to: .initial)
         }
     }
 
     func setGuess(to guess: GuessValue) {
-        switch guess {
-            case .correct:
-                setBackgroundColor(to: .correct)
-                setFontColor(to: .correct)
-            case .semicorrect:
-                setBackgroundColor(to: .semicorrect)
-                setFontColor(to: .semicorrect)
-            case .incorrect:
-                setBackgroundColor(to: .incorrect)
-                setFontColor(to: .incorrect)
-            default:
-                setBackgroundColor(to: .initial)
-                setFontColor(to: .initial)
-        }
+        setBackgroundColor(to: guess)
+        setFontColor(to: guess)
     }
 
     func animateFlip() {
-        
+        UIView.transition(with: self,
+                          duration: 0.4,
+                          options: .transitionFlipFromBottom,
+                          animations: nil,
+                          completion: nil)
     }
 }
