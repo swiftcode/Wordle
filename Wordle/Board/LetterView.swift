@@ -104,10 +104,23 @@ class LetterView: UITextField {
     }
 
     func animateFlip() {
+        var guess: GuessValue
+
+        let randomNumber = Int.random(in: 1...3)
+
+        switch randomNumber {
+            case 1: guess = .correct
+            case 2: guess = .semicorrect
+            case 3: guess = .incorrect
+            default: guess = .initial
+        }
+
         UIView.transition(with: self,
                           duration: 0.4,
                           options: .transitionFlipFromBottom,
                           animations: nil,
-                          completion: nil)
+                          completion: { _ in
+                              self.setGuess(to: guess)
+                           })
     }
 }

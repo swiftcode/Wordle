@@ -9,6 +9,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var titleView: TitleView = {
+        let view = TitleView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     var box: LetterView = {
         let textView = LetterView()
         textView.text = "A"
@@ -36,6 +42,7 @@ class ViewController: UIViewController {
 
     //MARK: - Setup and Layout
     private func setupView() {
+        view.addSubview(titleView)
         view.addSubview(box)
         view.addSubview(flipButton)
         flipButton.backgroundColor = .orange
@@ -43,8 +50,13 @@ class ViewController: UIViewController {
 
     private func setupLayout() {
         NSLayoutConstraint.activate([
-            box.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
-            box.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 50),
+            titleView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
+            titleView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            titleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            titleView.heightAnchor.constraint(equalToConstant: 60.0),
+
+            box.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 50),
+            box.leadingAnchor.constraint(equalTo: titleView.leadingAnchor, constant: 50),
             box.widthAnchor.constraint(equalToConstant: 60.0),
             box.heightAnchor.constraint(equalToConstant: 60.0),
 
