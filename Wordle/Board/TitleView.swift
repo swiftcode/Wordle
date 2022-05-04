@@ -21,10 +21,12 @@ class TitleView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Wordle"
+        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        label.textAlignment = .center
         return label
     }()
 
-    var statistics: UIButton = {
+    var statisticsButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "chart.bar"), for: .normal)
@@ -32,7 +34,7 @@ class TitleView: UIView {
         return button
     }()
 
-    var settings: UIButton = {
+    var settingsButton: UIButton = {
         let button = UIButton()
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setImage(UIImage(systemName: "gearshape.fill"), for: .normal)
@@ -55,20 +57,36 @@ class TitleView: UIView {
 
     //MARK: - Setup and Layout
     private func setupView() {
-        [helpButton, title, statistics, settings].forEach { addSubview($0) }
+        [helpButton, title, statisticsButton, settingsButton].forEach { addSubview($0) }
     }
 
     private func setupLayout() {
-        helpButton.addConstraint(topAnchor: topAnchor, leadingAnchor: leadingAnchor, trailingAnchor: nil, bottomAnchor: nil, paddingTop: 6.0, paddingLeft: 10.0, paddingRight: 0.0, paddingBottom: 0.0, width: 50.0, height: 50.0)
+        helpButton.addConstraint(topAnchor: topAnchor, leadingAnchor: leadingAnchor, trailingAnchor: nil, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 50.0, height: 50.0)
 
-        title.addConstraint(topAnchor: topAnchor, leadingAnchor: helpButton.trailingAnchor, trailingAnchor: nil, bottomAnchor: nil, paddingTop: 6.0, paddingLeft: 70.0, paddingRight: 0.0, paddingBottom: 0.0, width: 100.0, height: 50.0)
+        title.addConstraint(topAnchor: topAnchor, centerXAnchor: centerXAnchor, centerYAnchor: nil, bottomAnchor: bottomAnchor, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: Screen.width * 0.40, height: 50.0)
 
-        statistics.addConstraint(topAnchor: topAnchor, leadingAnchor: title.trailingAnchor, trailingAnchor: nil, bottomAnchor: nil, paddingTop: 6.0, paddingLeft: 10.0, paddingRight: 0.0, paddingBottom: 0.0, width: 50, height: 50.0)
+        statisticsButton.addConstraint(topAnchor: topAnchor, leadingAnchor: nil, trailingAnchor: settingsButton.leadingAnchor, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 50, height: 50.0)
 
-        settings.addConstraint(topAnchor: topAnchor, leadingAnchor: statistics.trailingAnchor, trailingAnchor: trailingAnchor, bottomAnchor: nil, paddingTop: 6.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 50.0, height: 50.0)
+        settingsButton.addConstraint(topAnchor: topAnchor, leadingAnchor: nil, trailingAnchor: trailingAnchor, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 50.0, height: 50.0)
+
     }
 
     private func setupActions() {
+        helpButton.addTarget(self, action: #selector(helpButtonTapped(sender:)), for: .touchUpInside)
+        statisticsButton.addTarget(self, action: #selector(statisticsButtonTapped(sender:)), for: .touchUpInside)
+        settingsButton.addTarget(self, action: #selector(settingsButtonTapped(sender:)), for: .touchUpInside)
+    }
 
+    //MARK: - Actions
+    @objc func helpButtonTapped(sender: UIButton) {
+        print("helpButtonTapped")
+    }
+
+    @objc func statisticsButtonTapped(sender: UIButton) {
+        print("statisticsButtonTapped")
+    }
+
+    @objc func settingsButtonTapped(sender: UIButton) {
+        print("settingsButtonTapped")
     }
 }

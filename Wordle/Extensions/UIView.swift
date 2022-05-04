@@ -45,4 +45,42 @@ extension UIView {
             heightAnchor.constraint(equalToConstant: height).isActive = true
         }
     }
+
+    func addConstraint(topAnchor: NSLayoutYAxisAnchor?,
+                       centerXAnchor: NSLayoutXAxisAnchor?,
+                       centerYAnchor: NSLayoutYAxisAnchor?,
+                       bottomAnchor: NSLayoutYAxisAnchor?,
+                       paddingTop: CGFloat,
+                       paddingLeft: CGFloat,
+                       paddingRight: CGFloat,
+                       paddingBottom: CGFloat,
+                       width: CGFloat,
+                       height: CGFloat) {
+        translatesAutoresizingMaskIntoConstraints = false
+
+        if let topAnchor = topAnchor {
+            self.topAnchor.constraint(equalTo: topAnchor, constant: paddingTop).isActive = true
+        }
+
+        if let centerXAnchor = centerXAnchor {
+            self.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
+        }
+
+        if let centerYAnchor = centerYAnchor {
+            self.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
+        }
+
+        if let bottomAnchor = bottomAnchor {
+            self.bottomAnchor.constraint(equalTo: bottomAnchor, constant: paddingBottom).isActive = true
+        }
+
+        if width != 0 {
+            widthAnchor.constraint(equalToConstant: width).isActive = true
+        }
+
+        if height != 0 {
+            heightAnchor.constraint(equalToConstant: height).isActive = true
+        }
+    }
+
 }

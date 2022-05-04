@@ -53,7 +53,7 @@ class ViewController: UIViewController {
             titleView.topAnchor.constraint(equalTo: view.topAnchor, constant: 50),
             titleView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             titleView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            titleView.heightAnchor.constraint(equalToConstant: 60.0),
+            titleView.heightAnchor.constraint(equalToConstant: 50.0),
 
             box.topAnchor.constraint(equalTo: titleView.bottomAnchor, constant: 50),
             box.leadingAnchor.constraint(equalTo: titleView.leadingAnchor, constant: 50),
