@@ -58,6 +58,9 @@ class TitleView: UIView {
     //MARK: - Setup and Layout
     private func setupView() {
         [helpButton, title, statisticsButton, settingsButton].forEach { addSubview($0) }
+
+        addTopBorder(in: .black, width: 1.0)
+        addBottomBorder(in: .black, width: 1.0)
     }
 
     private func setupLayout() {
