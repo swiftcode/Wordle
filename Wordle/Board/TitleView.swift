@@ -21,7 +21,7 @@ class TitleView: UIView {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Wordle"
-        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        label.font = UIFont.preferredFont(forTextStyle: .largeTitle).bold()
         label.textAlignment = .center
         return label
     }()
@@ -59,8 +59,7 @@ class TitleView: UIView {
     private func setupView() {
         [helpButton, title, statisticsButton, settingsButton].forEach { addSubview($0) }
 
-        addTopBorder(in: .black, width: 1.0)
-        addBottomBorder(in: .black, width: 1.0)
+        addBorders(to: [.top, .bottom], in: .black, width: 1.0)
     }
 
     private func setupLayout() {

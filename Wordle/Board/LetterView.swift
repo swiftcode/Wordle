@@ -57,6 +57,7 @@ class LetterView: UITextField {
     private func setupView() {
         textColor = .black
         font = UIFont.preferredFont(forTextStyle: .largeTitle)
+        adjustsFontForContentSizeCategory = true
         backgroundColor = .white
         borderStyle = .line
         textAlignment = .center

@@ -46,6 +46,7 @@ class ViewController: UIViewController {
         view.addSubview(box)
         view.addSubview(flipButton)
         flipButton.backgroundColor = .orange
+        flipButton.titleLabel?.font = UIFont.preferredFont(forTextStyle: .body).condensed()
     }
 
     private func setupLayout() {
