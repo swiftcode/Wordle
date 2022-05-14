@@ -36,15 +36,7 @@ class BoardCell: UICollectionViewCell {
     }
 
     private func setupLayout() {
-        let cellSize = (Screen.width / 5.0) - 2.0
-
-        NSLayoutConstraint.activate([
-            letter.topAnchor.constraint(equalTo: topAnchor),
-            letter.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 2.0),
-            letter.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -2.0),
-            letter.widthAnchor.constraint(equalToConstant: cellSize),
-            letter.heightAnchor.constraint(equalToConstant: cellSize)
-        ])
+        letter.addConstraint(topAnchor: topAnchor, leadingAnchor: leadingAnchor, trailingAnchor: trailingAnchor, bottomAnchor: bottomAnchor, paddingTop: 0.0, paddingLeft: 2.0, paddingRight: -2.0, paddingBottom: 0.0, width: 0.0, height: 0.0)
     }
 
     private func setupActions() {

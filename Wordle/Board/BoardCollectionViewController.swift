@@ -59,9 +59,6 @@ class BoardCollectionViewController: UICollectionViewController {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 5)
 
         let section = NSCollectionLayoutSection(group: group)
-        let spacing = CGFloat(10.0)
-        section.interGroupSpacing = spacing
-        section.contentInsets = NSDirectionalEdgeInsets(top: 0.0, leading: 1.0, bottom: 0.0, trailing: 1.0)
 
         //Section Header
         section.boundarySupplementaryItems = [
@@ -72,16 +69,15 @@ class BoardCollectionViewController: UICollectionViewController {
 
         let layout = UICollectionViewCompositionalLayout(section: section)
         return layout
-
     }
 
     // MARK: UICollectionViewDataSource
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 6
+        return 1
     }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 5
+        return 30
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

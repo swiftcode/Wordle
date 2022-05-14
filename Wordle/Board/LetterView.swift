@@ -64,10 +64,7 @@ class LetterView: UITextField {
     }
 
     private func setupLayout() {
-        NSLayoutConstraint.activate([
 
-
-        ])
     }
 
     private func setupActions() {
