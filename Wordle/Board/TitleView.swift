@@ -58,18 +58,18 @@ class TitleView: UIView {
     //MARK: - Setup and Layout
     private func setupView() {
         [helpButton, title, statisticsButton, settingsButton].forEach { addSubview($0) }
-
-        addBorders(to: [.top, .bottom], in: .black, width: 1.0)
     }
 
     private func setupLayout() {
-        helpButton.addConstraint(topAnchor: topAnchor, leadingAnchor: leadingAnchor, trailingAnchor: nil, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 50.0, height: 50.0)
+        let guide = safeAreaLayoutGuide
 
-        title.addConstraint(topAnchor: topAnchor, centerXAnchor: centerXAnchor, centerYAnchor: nil, bottomAnchor: bottomAnchor, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: Screen.width * 0.40, height: 50.0)
+        helpButton.addConstraint(topAnchor: guide.topAnchor, leadingAnchor: leadingAnchor, trailingAnchor: nil, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 50.0, height: 50.0)
 
-        statisticsButton.addConstraint(topAnchor: topAnchor, leadingAnchor: nil, trailingAnchor: settingsButton.leadingAnchor, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 50, height: 50.0)
+        title.addConstraint(topAnchor: guide.topAnchor, centerXAnchor: centerXAnchor, centerYAnchor: nil, bottomAnchor: bottomAnchor, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: Screen.width * 0.40, height: 50.0)
 
-        settingsButton.addConstraint(topAnchor: topAnchor, leadingAnchor: nil, trailingAnchor: trailingAnchor, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 50.0, height: 50.0)
+        statisticsButton.addConstraint(topAnchor: guide.topAnchor, leadingAnchor: nil, trailingAnchor: settingsButton.leadingAnchor, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 50, height: 50.0)
+
+        settingsButton.addConstraint(topAnchor: guide.topAnchor, leadingAnchor: nil, trailingAnchor: trailingAnchor, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 50.0, height: 50.0)
 
     }
 
