@@ -20,9 +20,10 @@
 		E55C6D7D280E1F3F00BD504F /* WordleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C6D7C280E1F3F00BD504F /* WordleUITests.swift */; };
 		E55C6D7F280E1F3F00BD504F /* WordleUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C6D7E280E1F3F00BD504F /* WordleUITestsLaunchTests.swift */; };
 		E55C6D8F280E4E9000BD504F /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C6D8E280E4E9000BD504F /* LetterView.swift */; };
-		E579E7E228251E220073F4E6 /* BoardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E579E7E128251E220073F4E6 /* BoardCollectionViewController.swift */; };
-		E579E7E328251E220073F4E6 /* BoardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E579E7E128251E220073F4E6 /* BoardCollectionViewController.swift */; };
-		E5AACD922833E78000D7351E /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5AACD912833E78000D7351E /* BoardViewController.swift */; };
+		E55DBC782835B42F0082ADE7 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55DBC772835B42F0082ADE7 /* BoardViewController.swift */; };
+		E55DBC792835B42F0082ADE7 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55DBC772835B42F0082ADE7 /* BoardViewController.swift */; };
+		E55DBC7B2835B4440082ADE7 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55DBC7A2835B4440082ADE7 /* BoardView.swift */; };
+		E55DBC7C2835B4440082ADE7 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55DBC7A2835B4440082ADE7 /* BoardView.swift */; };
 		E5BA5CC62822224800B4F99C /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BA5CC52822224800B4F99C /* Screen.swift */; };
 		E5ED489E28210E1200F0E09F /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED489D28210E1200F0E09F /* TitleView.swift */; };
 		E5ED489F28210E1200F0E09F /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED489D28210E1200F0E09F /* TitleView.swift */; };
@@ -64,8 +65,8 @@
 		E55C6D7C280E1F3F00BD504F /* WordleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleUITests.swift; sourceTree = "<group>"; };
 		E55C6D7E280E1F3F00BD504F /* WordleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E55C6D8E280E4E9000BD504F /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
-		E579E7E128251E220073F4E6 /* BoardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCollectionViewController.swift; sourceTree = "<group>"; };
-		E5AACD912833E78000D7351E /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		E55DBC772835B42F0082ADE7 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
+		E55DBC7A2835B4440082ADE7 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
 		E5BA5CC52822224800B4F99C /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		E5ED489D28210E1200F0E09F /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		E5ED48A128210F6600F0E09F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
@@ -156,8 +157,8 @@
 			children = (
 				E55C6D8E280E4E9000BD504F /* LetterView.swift */,
 				E5ED489D28210E1200F0E09F /* TitleView.swift */,
-				E5AACD912833E78000D7351E /* BoardViewController.swift */,
-				E579E7E128251E220073F4E6 /* BoardCollectionViewController.swift */,
+				E55DBC772835B42F0082ADE7 /* BoardViewController.swift */,
+				E55DBC7A2835B4440082ADE7 /* BoardView.swift */,
 				E51E97412829043700797078 /* BoardCell.swift */,
 			);
 			path = Board;
@@ -312,9 +313,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E55DBC7B2835B4440082ADE7 /* BoardView.swift in Sources */,
 				E51E97422829043700797078 /* BoardCell.swift in Sources */,
-				E5AACD922833E78000D7351E /* BoardViewController.swift in Sources */,
-				E579E7E228251E220073F4E6 /* BoardCollectionViewController.swift in Sources */,
 				E55C6D60280E1F3D00BD504F /* ViewController.swift in Sources */,
 				E55C6D5C280E1F3D00BD504F /* AppDelegate.swift in Sources */,
 				E5ED48A228210F6600F0E09F /* UIView.swift in Sources */,
@@ -323,6 +323,7 @@
 				E5ED489E28210E1200F0E09F /* TitleView.swift in Sources */,
 				E5BA5CC62822224800B4F99C /* Screen.swift in Sources */,
 				E508BEA928233AA30040372E /* UIFont.swift in Sources */,
+				E55DBC782835B42F0082ADE7 /* BoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,9 +331,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E579E7E328251E220073F4E6 /* BoardCollectionViewController.swift in Sources */,
 				E55C6D73280E1F3F00BD504F /* WordleTests.swift in Sources */,
+				E55DBC7C2835B4440082ADE7 /* BoardView.swift in Sources */,
 				E5ED489F28210E1200F0E09F /* TitleView.swift in Sources */,
+				E55DBC792835B42F0082ADE7 /* BoardViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

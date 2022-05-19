@@ -61,16 +61,28 @@ class TitleView: UIView {
     }
 
     private func setupLayout() {
-        let guide = safeAreaLayoutGuide
+        NSLayoutConstraint.activate([
+            title.topAnchor.constraint(equalTo: topAnchor),
+            title.centerXAnchor.constraint(equalTo: centerXAnchor),
+            title.bottomAnchor.constraint(equalTo: bottomAnchor),
+            title.widthAnchor.constraint(equalToConstant: Screen.width * 0.40),
+            title.heightAnchor.constraint(equalToConstant: 50.0),
 
-        helpButton.addConstraint(topAnchor: guide.topAnchor, leadingAnchor: leadingAnchor, trailingAnchor: nil, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 50.0, height: 50.0)
+            helpButton.topAnchor.constraint(equalTo: topAnchor),
+            helpButton.centerYAnchor.constraint(equalTo: title.centerYAnchor),
+            helpButton.leadingAnchor.constraint(equalTo: leadingAnchor),
+            helpButton.widthAnchor.constraint(equalToConstant: 50.0),
 
-        title.addConstraint(topAnchor: guide.topAnchor, centerXAnchor: centerXAnchor, centerYAnchor: nil, bottomAnchor: bottomAnchor, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: Screen.width * 0.40, height: 50.0)
+            settingsButton.topAnchor.constraint(equalTo: topAnchor),
+            settingsButton.centerYAnchor.constraint(equalTo: title.centerYAnchor),
+            settingsButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -3.0),
+            settingsButton.widthAnchor.constraint(equalToConstant: 50.0),
 
-        statisticsButton.addConstraint(topAnchor: guide.topAnchor, leadingAnchor: nil, trailingAnchor: settingsButton.leadingAnchor, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 50, height: 50.0)
-
-        settingsButton.addConstraint(topAnchor: guide.topAnchor, leadingAnchor: nil, trailingAnchor: trailingAnchor, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 50.0, height: 50.0)
-
+            statisticsButton.topAnchor.constraint(equalTo: topAnchor),
+            statisticsButton.centerYAnchor.constraint(equalTo: title.centerYAnchor),
+            statisticsButton.trailingAnchor.constraint(equalTo: settingsButton.leadingAnchor, constant: -3),
+            statisticsButton.widthAnchor.constraint(equalToConstant: 50.0)
+        ])
     }
 
     private func setupActions() {
