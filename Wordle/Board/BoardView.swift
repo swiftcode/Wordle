@@ -46,6 +46,8 @@ class BoardView: UIView {
         let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         layout.scrollDirection = .vertical
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 4
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.backgroundColor = .white
         return collection
@@ -103,14 +105,10 @@ extension BoardView: UICollectionViewDataSource {
 extension BoardView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        return CGSize(width: (Screen.width / 5.0) - 10, height: 50.0)
+        return CGSize(width: (Screen.width / 5.0) - 3, height: 50.0)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0, left: 0.5, bottom: 0, right: 0.5)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
+        return UIEdgeInsets(top: 0.0, left: 7.0, bottom: 0.0, right: 7.0)
     }
 }
