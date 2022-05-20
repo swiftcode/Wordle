@@ -10,6 +10,8 @@
 		E508BEA928233AA30040372E /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E508BEA828233AA30040372E /* UIFont.swift */; };
 		E51BE1FB2813ADF8007010D9 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E51BE1FA2813ADF8007010D9 /* Color.xcassets */; };
 		E51E97422829043700797078 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E97412829043700797078 /* BoardCell.swift */; };
+		E52F7CD228374D80009BED27 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = E52F7CD128374D80009BED27 /* words.txt */; };
+		E52F7CD528374F1D009BED27 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52F7CD428374F1D009BED27 /* Words.swift */; };
 		E55C6D5C280E1F3D00BD504F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C6D5B280E1F3D00BD504F /* AppDelegate.swift */; };
 		E55C6D5E280E1F3D00BD504F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C6D5D280E1F3D00BD504F /* SceneDelegate.swift */; };
 		E55C6D60280E1F3D00BD504F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C6D5F280E1F3D00BD504F /* ViewController.swift */; };
@@ -51,6 +53,8 @@
 		E508BEA828233AA30040372E /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		E51BE1FA2813ADF8007010D9 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		E51E97412829043700797078 /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
+		E52F7CD128374D80009BED27 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
+		E52F7CD428374F1D009BED27 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
 		E55C6D58280E1F3D00BD504F /* Wordle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E55C6D5B280E1F3D00BD504F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E55C6D5D280E1F3D00BD504F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +101,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E52F7CD028374D53009BED27 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				E52F7CD128374D80009BED27 /* words.txt */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		E52F7CD328374EFC009BED27 /* Methods */ = {
+			isa = PBXGroup;
+			children = (
+				E52F7CD428374F1D009BED27 /* Words.swift */,
+			);
+			path = Methods;
+			sourceTree = "<group>";
+		};
 		E55C6D4F280E1F3D00BD504F = {
 			isa = PBXGroup;
 			children = (
@@ -120,6 +140,7 @@
 		E55C6D5A280E1F3D00BD504F /* Wordle */ = {
 			isa = PBXGroup;
 			children = (
+				E52F7CD328374EFC009BED27 /* Methods */,
 				E5BA5CC42822223800B4F99C /* Utils */,
 				E55C6D8B280E4AB700BD504F /* Board */,
 				E5ED48A028210F5000F0E09F /* Extensions */,
@@ -127,6 +148,7 @@
 				E55C6D5D280E1F3D00BD504F /* SceneDelegate.swift */,
 				E55C6D5F280E1F3D00BD504F /* ViewController.swift */,
 				E55C6D61280E1F3D00BD504F /* Main.storyboard */,
+				E52F7CD028374D53009BED27 /* Resources */,
 				E55C6D64280E1F3F00BD504F /* Assets.xcassets */,
 				E51BE1FA2813ADF8007010D9 /* Color.xcassets */,
 				E55C6D66280E1F3F00BD504F /* LaunchScreen.storyboard */,
@@ -288,6 +310,7 @@
 				E55C6D68280E1F3F00BD504F /* LaunchScreen.storyboard in Resources */,
 				E51BE1FB2813ADF8007010D9 /* Color.xcassets in Resources */,
 				E55C6D65280E1F3F00BD504F /* Assets.xcassets in Resources */,
+				E52F7CD228374D80009BED27 /* words.txt in Resources */,
 				E55C6D63280E1F3D00BD504F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,6 +345,7 @@
 				E55C6D8F280E4E9000BD504F /* LetterView.swift in Sources */,
 				E5ED489E28210E1200F0E09F /* TitleView.swift in Sources */,
 				E5BA5CC62822224800B4F99C /* Screen.swift in Sources */,
+				E52F7CD528374F1D009BED27 /* Words.swift in Sources */,
 				E508BEA928233AA30040372E /* UIFont.swift in Sources */,
 				E55DBC782835B42F0082ADE7 /* BoardViewController.swift in Sources */,
 			);

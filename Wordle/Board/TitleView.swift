@@ -64,7 +64,6 @@ class TitleView: UIView {
         NSLayoutConstraint.activate([
             title.topAnchor.constraint(equalTo: topAnchor),
             title.centerXAnchor.constraint(equalTo: centerXAnchor),
-            title.bottomAnchor.constraint(equalTo: bottomAnchor),
             title.widthAnchor.constraint(equalToConstant: Screen.width * 0.40),
             title.heightAnchor.constraint(equalToConstant: 50.0),
 

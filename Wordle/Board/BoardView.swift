@@ -53,13 +53,19 @@ class BoardView: UIView {
         return collection
     }()
 
+    var wordlist: [String] = []
+
     //MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        let wordlist = wordList()
+
         setupView()
         setupLayout()
         setupActions()
+
+        print("Wordlist: \n \(wordlist[101])")
     }
 
     required init?(coder aDecoder: NSCoder) {
