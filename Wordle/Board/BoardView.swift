@@ -60,12 +60,11 @@ class BoardView: UIView {
         super.init(frame: frame)
 
         let wordlist = wordList()
+        print(wordlist)
 
         setupView()
         setupLayout()
         setupActions()
-
-        print("Wordlist: \n \(wordlist[101])")
     }
 
     required init?(coder aDecoder: NSCoder) {
