@@ -11,7 +11,6 @@ class BoardHeader: UICollectionReusableView {
     static let identifier = "headerIdentifier"
 
     override init(frame: CGRect) {
-        let titleView = TitleView(frame: .zero)
         super.init(frame: .zero)
     }
 
@@ -44,10 +43,11 @@ class BoardView: UIView {
 
     var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         layout.scrollDirection = .vertical
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 4
+
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         collection.backgroundColor = .white
         return collection
@@ -88,10 +88,6 @@ class BoardView: UIView {
 
     private func setupLayout() {
         collectionView.addConstraint(topAnchor: topAnchor, leadingAnchor: leadingAnchor, trailingAnchor: trailingAnchor, bottomAnchor: bottomAnchor, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: 0.0)
-    }
-
-    private func setupActions() {
-
     }
 }
 
