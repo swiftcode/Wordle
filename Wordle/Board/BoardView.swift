@@ -64,7 +64,6 @@ class BoardView: UIView {
 
         setupView()
         setupLayout()
-        setupActions()
     }
 
     required init?(coder aDecoder: NSCoder) {

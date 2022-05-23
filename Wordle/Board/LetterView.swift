@@ -43,8 +43,6 @@ class LetterView: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        backgroundColor = .blue
-
         setupView()
         setupLayout()
         setupActions()

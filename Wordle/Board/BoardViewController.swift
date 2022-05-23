@@ -15,6 +15,14 @@ class BoardViewController: UIViewController {
         return view
     }()
 
+    var button: KeyboardButton = {
+        let b = KeyboardButton(frame: .zero)
+        b.translatesAutoresizingMaskIntoConstraints = false
+        b.setTitle("Press", for: .normal)
+        b.backgroundColor = .systemOrange
+        return b
+    }()
+
     var boardView: BoardView = {
         let view = BoardView(frame: .zero)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -34,7 +42,7 @@ class BoardViewController: UIViewController {
 
     //MARK: - Setup and Layout
     private func setupView() {
-        [titleView, boardView].forEach { view.addSubview($0) }
+        [titleView, boardView, button].forEach { view.addSubview($0) }
     }
 
     private func setupLayout() {
@@ -42,10 +50,17 @@ class BoardViewController: UIViewController {
 
         titleView.addConstraint(topAnchor: guide.topAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: Screen.height * 0.10)
 
-        boardView.addConstraint(topAnchor: titleView.bottomAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, bottomAnchor: view.bottomAnchor, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: 0.0)
+        boardView.addConstraint(topAnchor: titleView.bottomAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: Screen.height * 0.40)
+
+        button.addConstraint(topAnchor: boardView.bottomAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: nil, bottomAnchor: nil, paddingTop: 10.0, paddingLeft: 60.0, paddingRight: 0.0, paddingBottom: 0.0, width: 60.0, height: 60.0)
     }
 
     private func setupActions() {
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+    }
 
+    @objc func buttonTapped() {
+        print("buttonTapped")
+        button.setBackgroundColor(to: .correct)
     }
 }
