@@ -15,10 +15,16 @@ class BoardViewController: UIViewController {
         return view
     }()
 
+    var keyboardView: KeyboardView = {
+        let view = KeyboardView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     var button: KeyboardButton = {
         let b = KeyboardButton(frame: .zero)
         b.translatesAutoresizingMaskIntoConstraints = false
-        b.setTitle("Press", for: .normal)
+        b.setTitle("A", for: .normal)
         b.backgroundColor = .systemOrange
         return b
     }()
@@ -42,7 +48,7 @@ class BoardViewController: UIViewController {
 
     //MARK: - Setup and Layout
     private func setupView() {
-        [titleView, boardView, button].forEach { view.addSubview($0) }
+        [titleView, boardView, keyboardView].forEach { view.addSubview($0) }
     }
 
     private func setupLayout() {
@@ -52,7 +58,7 @@ class BoardViewController: UIViewController {
 
         boardView.addConstraint(topAnchor: titleView.bottomAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: Screen.height * 0.40)
 
-        button.addConstraint(topAnchor: boardView.bottomAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: nil, bottomAnchor: nil, paddingTop: 10.0, paddingLeft: 60.0, paddingRight: 0.0, paddingBottom: 0.0, width: 60.0, height: 60.0)
+        keyboardView.addConstraint(topAnchor: boardView.bottomAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, bottomAnchor: nil, paddingTop: 10.0, paddingLeft: 3.0, paddingRight: 0.0, paddingBottom: 0.0, width: 30.0, height: 30.0)
     }
 
     private func setupActions() {
@@ -61,6 +67,18 @@ class BoardViewController: UIViewController {
 
     @objc func buttonTapped() {
         print("buttonTapped")
-        button.setBackgroundColor(to: .correct)
+
+        var guess: GuessValue
+
+        let randomNumber = Int.random(in: 1...3)
+
+        switch randomNumber {
+            case 1: guess = .correct
+            case 2: guess = .semicorrect
+            case 3: guess = .incorrect
+            default: guess = .initial
+        }
+
+        button.setBackgroundColor(to: guess)
     }
 }
