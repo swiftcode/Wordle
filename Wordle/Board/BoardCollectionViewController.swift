@@ -7,27 +7,35 @@
 
 import UIKit
 
+class BoardHeader: UICollectionReusableView {
+    static let identifier = "headerIdentifier"
 
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+    }
+}
 
 class BoardCollectionViewController: UICollectionViewController {
 
+    var titleView: TitleView = {
+        let view = TitleView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
     init() {
-    let layout = UICollectionViewCompositionalLayout { (sectionNumber, env) -> NSCollectionLayoutSection in
-        let item = NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.20), heightDimension: .fractionalHeight(1.0)))
-
-            item.contentInsets.leading = 1.0
-
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(50.0)), subitems: [item])
-        group.contentInsets.leading = 20.0
-        group.contentInsets.trailing = 20.0
-
-        let section = NSCollectionLayoutSection(group: group)
-        return section
-        }
-
-        super.init(collectionViewLayout: layout)
-        collectionView.backgroundColor = .systemMint
+        super.init(collectionViewLayout: UICollectionViewLayout())
+        _ = createLayout()
     }
+
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -36,23 +44,31 @@ class BoardCollectionViewController: UICollectionViewController {
      override func viewDidLoad() {
         super.viewDidLoad()
 
+         view.backgroundColor = .yellow
+
+        setupView()
+        setupLayout()
+
         // Register cell classes
         self.collectionView!.register(BoardCell.self,
                                       forCellWithReuseIdentifier: BoardCell.identifier)
+        collectionView.register(BoardCollectionViewController.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: BoardHeader.identifier)
     }
 
-
-    // MARK: - Setup
-    //MARK: - Setup and Layout
     private func setupView() {
-        
+        view.addSubview(titleView)
     }
 
     private func setupLayout() {
-        NSLayoutConstraint.activate([
+        let guide = view.safeAreaLayoutGuide
 
+        titleView.addConstraint(topAnchor: guide.topAnchor, leadingAnchor: guide.leadingAnchor, trailingAnchor: guide.trailingAnchor, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: Screen.height * 0.08)
 
-        ])
+        titleView.backgroundColor = .magenta
+
+        collectionView.addConstraint(topAnchor: titleView.bottomAnchor, leadingAnchor: guide.leadingAnchor, trailingAnchor: guide.trailingAnchor, bottomAnchor: guide.bottomAnchor, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: 0.0)
     }
 
     private func setupActions() {
@@ -73,15 +89,7 @@ class BoardCollectionViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoardCell.identifier, for: indexPath) as! BoardCell
 
-        switch indexPath.row {
-            case 0: cell.backgroundColor = .systemOrange
-            case 1: cell.backgroundColor = .systemRed
-            case 2: cell.backgroundColor = .purple
-            case 3: cell.backgroundColor = .systemTeal
-            case 4: cell.backgroundColor = .systemGreen
-            default: cell.backgroundColor = .magenta
-
-        }
+        cell.letter.backgroundColor = .systemRed
 
         return cell
     }
@@ -92,7 +100,22 @@ class BoardCollectionViewController: UICollectionViewController {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 0.0, left: 20.0, bottom: 0.0, right: 20.0)
+        return UIEdgeInsets(top: 0.0, left: Screen.width * 0.20, bottom: 0.0, right: Screen.width * 0.20)
+    }
+
+    private func createLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.20), heightDimension: .fractionalHeight(1.0))
+
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.2))
+
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+
+        let section = NSCollectionLayoutSection(group: group)
+
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
     }
 
     // MARK: UICollectionViewDelegate
@@ -125,4 +148,8 @@ class BoardCollectionViewController: UICollectionViewController {
       print("Perform action")
     }
      */
+}
+
+extension BoardCollectionViewController {
+
 }

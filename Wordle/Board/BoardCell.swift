@@ -22,6 +22,7 @@ class BoardCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
+        backgroundColor = .purple
         setupView()
         setupLayout()
     }
