@@ -7,6 +7,113 @@
 
 import UIKit
 
+
+class BoardViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    enum Section {
+        case main
+    }
+
+     var collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+
+        let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.backgroundColor = .systemOrange
+        return collection
+    }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        configureHierarchy()
+
+        setupView()
+        //setupLayout()
+        //setupActions()
+    }
+
+    private func createLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.2),
+                                             heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
+                                              heightDimension: .fractionalWidth(0.2))
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize,
+                                                         subitems: [item])
+
+        let section = NSCollectionLayoutSection(group: group)
+
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        return layout
+    }
+
+    private func configureHierarchy() {
+        collectionView.register(BoardCell.self, forCellWithReuseIdentifier: BoardCell.identifier)
+
+        collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
+        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        collectionView.backgroundColor = .black
+        view.addSubview(collectionView)
+    }
+
+    //MARK: - CollectionView Setup
+
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        30
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoardCell.identifier, for: indexPath)
+
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+
+        let itemSize = CGSize(width: (Screen.width / 3.0) - 3, height: (Screen.width / 3.0) - 3)
+        return itemSize
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 2
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 2
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return UIEdgeInsets(top: 2.0, left: 2.0, bottom: 2.0, right: 2.0)
+    }
+
+
+    //MARK: - Setup and Layout
+    private func setupView() {
+        [collectionView].forEach { view.addSubview($0) }
+        collectionView.delegate = self
+        collectionView.dataSource = self
+
+        collectionView.register(BoardCell.self, forCellWithReuseIdentifier: BoardCell.identifier)
+    }
+
+    private func setupLayout() {
+
+    }
+
+    private func setupActions() {
+
+    }
+
+
+
+}
+
+
+
+/*
 class BoardViewController: UIViewController {
 
     var titleView: TitleView = {
@@ -82,3 +189,4 @@ class BoardViewController: UIViewController {
         button.setBackgroundColor(to: guess)
     }
 }
+*/
