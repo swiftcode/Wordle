@@ -17,7 +17,6 @@ class HeaderView: UICollectionReusableView {
     }()
 
     public func configure() {
-        backgroundColor = .systemGreen
         addSubview(titleView)
     }
 

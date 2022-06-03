@@ -27,9 +27,6 @@
 		E55C6D8F280E4E9000BD504F /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C6D8E280E4E9000BD504F /* LetterView.swift */; };
 		E55DBC782835B42F0082ADE7 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55DBC772835B42F0082ADE7 /* BoardViewController.swift */; };
 		E55DBC792835B42F0082ADE7 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55DBC772835B42F0082ADE7 /* BoardViewController.swift */; };
-		E55DBC7B2835B4440082ADE7 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55DBC7A2835B4440082ADE7 /* BoardView.swift */; };
-		E55DBC7C2835B4440082ADE7 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55DBC7A2835B4440082ADE7 /* BoardView.swift */; };
-		E57DD7152846CD67008D0693 /* BoardHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DD7142846CD67008D0693 /* BoardHeaderCell.swift */; };
 		E59643A0283A530900F9B65B /* KeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E596439F283A530900F9B65B /* KeyboardButton.swift */; };
 		E5B3F4A128497884009F003D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3F4A028497884009F003D /* HeaderView.swift */; };
 		E5BA5CC62822224800B4F99C /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BA5CC52822224800B4F99C /* Screen.swift */; };
@@ -78,8 +75,6 @@
 		E55C6D7E280E1F3F00BD504F /* WordleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E55C6D8E280E4E9000BD504F /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
 		E55DBC772835B42F0082ADE7 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
-		E55DBC7A2835B4440082ADE7 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
-		E57DD7142846CD67008D0693 /* BoardHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardHeaderCell.swift; sourceTree = "<group>"; };
 		E596439F283A530900F9B65B /* KeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; };
 		E5B3F4A028497884009F003D /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		E5BA5CC52822224800B4F99C /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
@@ -201,11 +196,9 @@
 			children = (
 				E55C6D8E280E4E9000BD504F /* LetterView.swift */,
 				E5ED489D28210E1200F0E09F /* TitleView.swift */,
-				E55DBC772835B42F0082ADE7 /* BoardViewController.swift */,
-				E55DBC7A2835B4440082ADE7 /* BoardView.swift */,
-				E51E97412829043700797078 /* BoardCell.swift */,
-				E57DD7142846CD67008D0693 /* BoardHeaderCell.swift */,
 				E5B3F4A028497884009F003D /* HeaderView.swift */,
+				E55DBC772835B42F0082ADE7 /* BoardViewController.swift */,
+				E51E97412829043700797078 /* BoardCell.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -360,8 +353,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E55DBC7B2835B4440082ADE7 /* BoardView.swift in Sources */,
-				E57DD7152846CD67008D0693 /* BoardHeaderCell.swift in Sources */,
 				E53975492838F25B00306557 /* KeyboardView.swift in Sources */,
 				E500296C283C8A4700D8BE71 /* KeyboardCell.swift in Sources */,
 				E51E97422829043700797078 /* BoardCell.swift in Sources */,
@@ -385,7 +376,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E55C6D73280E1F3F00BD504F /* WordleTests.swift in Sources */,
-				E55DBC7C2835B4440082ADE7 /* BoardView.swift in Sources */,
 				E500296D283C8A4700D8BE71 /* KeyboardCell.swift in Sources */,
 				E5ED489F28210E1200F0E09F /* TitleView.swift in Sources */,
 				E55DBC792835B42F0082ADE7 /* BoardViewController.swift in Sources */,
