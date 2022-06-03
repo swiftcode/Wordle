@@ -7,12 +7,43 @@
 
 import UIKit
 
+class BoardHeader: UICollectionReusableView {
+    static let identifier = "headerIdentifier"
+
+//    var titleView: TitleView = {
+//        let view = TitleView(frame: .zero)
+//        view.translatesAutoresizingMaskIntoConstraints = false
+//        return view
+//    }()
+
+    var label: UILabel = {
+        let lbl = UILabel(frame: .zero)
+        lbl.translatesAutoresizingMaskIntoConstraints = false
+        lbl.text = "Title.Wordle"
+        return lbl
+    }()
+
+    override init(frame: CGRect) {
+        super.init(frame: .zero)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    func configure() {
+        backgroundColor = .systemOrange
+        label.addConstraint(topAnchor: topAnchor, leadingAnchor: leadingAnchor, trailingAnchor: trailingAnchor, bottomAnchor: bottomAnchor, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: 0.0)
+    }
+
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        label.frame = bounds
+    }
+}
+
 
 class BoardViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-
-    enum Section {
-        case main
-    }
 
      var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -20,18 +51,14 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
 
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
-        collection.backgroundColor = .systemOrange
         return collection
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        configureHierarchy()
-
+        configureCollection()
         setupView()
-        //setupLayout()
-        //setupActions()
     }
 
     private func createLayout() -> UICollectionViewLayout {
@@ -50,30 +77,45 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
         return layout
     }
 
-    private func configureHierarchy() {
+    private func configureCollection() {
         collectionView.register(BoardCell.self, forCellWithReuseIdentifier: BoardCell.identifier)
-
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
-        collectionView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        collectionView.backgroundColor = .black
+        collectionView.register(HeaderView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: HeaderView.identifier)
+
         view.addSubview(collectionView)
+    }
+
+    //MARK: - Setup and Layout
+    private func setupView() {
+        view.addSubview(collectionView)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(BoardCell.self, forCellWithReuseIdentifier: BoardCell.identifier)
     }
 
     //MARK: - CollectionView Setup
 
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        30
+        2
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoardCell.identifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoardCell.identifier, for: indexPath) as! BoardCell
+
+        cell.letter.backgroundColor = .systemMint
 
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let itemSize = CGSize(width: (Screen.width / 3.0) - 3, height: (Screen.width / 3.0) - 3)
+        let itemSize = CGSize(width: (Screen.width / 5.0) - 3, height: (Screen.width / 5.0) - 3)
         return itemSize
     }
 
@@ -82,111 +124,24 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 2
+        return 3
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: 2.0, left: 2.0, bottom: 2.0, right: 2.0)
+        return UIEdgeInsets(top: 5.0, left: 5.0, bottom: 5.0, right: 5.0)
     }
 
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let header = collectionView.dequeueReusableSupplementaryView(
+            ofKind: kind,
+            withReuseIdentifier: HeaderView.identifier,
+            for: indexPath) as! HeaderView
 
-    //MARK: - Setup and Layout
-    private func setupView() {
-        [collectionView].forEach { view.addSubview($0) }
-        collectionView.delegate = self
-        collectionView.dataSource = self
-
-        collectionView.register(BoardCell.self, forCellWithReuseIdentifier: BoardCell.identifier)
+        header.backgroundColor = .systemRed
+        return header
     }
 
-    private func setupLayout() {
-
-    }
-
-    private func setupActions() {
-
-    }
-
-
-
-}
-
-
-
-/*
-class BoardViewController: UIViewController {
-
-    var titleView: TitleView = {
-        let view = TitleView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    var keyboardView: KeyboardView = {
-        let view = KeyboardView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    var button: KeyboardButton = {
-        let b = KeyboardButton(frame: .zero)
-        b.translatesAutoresizingMaskIntoConstraints = false
-        b.setTitle("A", for: .normal)
-        b.backgroundColor = .systemOrange
-        return b
-    }()
-
-    var boardView: BoardView = {
-        let view = BoardView(frame: .zero)
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        view.backgroundColor = .white
-
-        setupView()
-        setupLayout()
-        setupActions()
-    }
-
-
-    //MARK: - Setup and Layout
-    private func setupView() {
-        [titleView, boardView, keyboardView].forEach { view.addSubview($0) }
-    }
-
-    private func setupLayout() {
-        let guide = view.safeAreaLayoutGuide
-
-        titleView.addConstraint(topAnchor: guide.topAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: Screen.height * 0.10)
-
-        boardView.addConstraint(topAnchor: titleView.bottomAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: Screen.height * 0.40)
-
-        keyboardView.addConstraint(topAnchor: boardView.bottomAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, bottomAnchor: nil, paddingTop: 10.0, paddingLeft: 3.0, paddingRight: 0.0, paddingBottom: 0.0, width: 30.0, height: 30.0)
-    }
-
-    private func setupActions() {
-        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
-    }
-
-    @objc func buttonTapped() {
-        print("buttonTapped")
-
-        var guess: GuessValue
-
-        let randomNumber = Int.random(in: 1...3)
-
-        switch randomNumber {
-            case 1: guess = .correct
-            case 2: guess = .semicorrect
-            case 3: guess = .incorrect
-            default: guess = .initial
-        }
-
-        button.setBackgroundColor(to: guess)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: Screen.width, height: Screen.height * 0.33)
     }
 }
-*/

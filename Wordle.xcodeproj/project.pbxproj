@@ -29,12 +29,13 @@
 		E55DBC792835B42F0082ADE7 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55DBC772835B42F0082ADE7 /* BoardViewController.swift */; };
 		E55DBC7B2835B4440082ADE7 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55DBC7A2835B4440082ADE7 /* BoardView.swift */; };
 		E55DBC7C2835B4440082ADE7 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55DBC7A2835B4440082ADE7 /* BoardView.swift */; };
+		E57DD7152846CD67008D0693 /* BoardHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E57DD7142846CD67008D0693 /* BoardHeaderCell.swift */; };
 		E59643A0283A530900F9B65B /* KeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E596439F283A530900F9B65B /* KeyboardButton.swift */; };
+		E5B3F4A128497884009F003D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3F4A028497884009F003D /* HeaderView.swift */; };
 		E5BA5CC62822224800B4F99C /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BA5CC52822224800B4F99C /* Screen.swift */; };
 		E5ED489E28210E1200F0E09F /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED489D28210E1200F0E09F /* TitleView.swift */; };
 		E5ED489F28210E1200F0E09F /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED489D28210E1200F0E09F /* TitleView.swift */; };
 		E5ED48A228210F6600F0E09F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED48A128210F6600F0E09F /* UIView.swift */; };
-		E5F5D8F2283FF51A000C76CE /* BoardCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5F5D8F1283FF51A000C76CE /* BoardCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,11 +79,12 @@
 		E55C6D8E280E4E9000BD504F /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
 		E55DBC772835B42F0082ADE7 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
 		E55DBC7A2835B4440082ADE7 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
+		E57DD7142846CD67008D0693 /* BoardHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardHeaderCell.swift; sourceTree = "<group>"; };
 		E596439F283A530900F9B65B /* KeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; };
+		E5B3F4A028497884009F003D /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		E5BA5CC52822224800B4F99C /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
 		E5ED489D28210E1200F0E09F /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		E5ED48A128210F6600F0E09F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
-		E5F5D8F1283FF51A000C76CE /* BoardCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,10 +201,11 @@
 			children = (
 				E55C6D8E280E4E9000BD504F /* LetterView.swift */,
 				E5ED489D28210E1200F0E09F /* TitleView.swift */,
-				E5F5D8F1283FF51A000C76CE /* BoardCollectionViewController.swift */,
 				E55DBC772835B42F0082ADE7 /* BoardViewController.swift */,
 				E55DBC7A2835B4440082ADE7 /* BoardView.swift */,
 				E51E97412829043700797078 /* BoardCell.swift */,
+				E57DD7142846CD67008D0693 /* BoardHeaderCell.swift */,
+				E5B3F4A028497884009F003D /* HeaderView.swift */,
 			);
 			path = Board;
 			sourceTree = "<group>";
@@ -358,15 +361,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				E55DBC7B2835B4440082ADE7 /* BoardView.swift in Sources */,
+				E57DD7152846CD67008D0693 /* BoardHeaderCell.swift in Sources */,
 				E53975492838F25B00306557 /* KeyboardView.swift in Sources */,
 				E500296C283C8A4700D8BE71 /* KeyboardCell.swift in Sources */,
 				E51E97422829043700797078 /* BoardCell.swift in Sources */,
 				E55C6D60280E1F3D00BD504F /* ViewController.swift in Sources */,
+				E5B3F4A128497884009F003D /* HeaderView.swift in Sources */,
 				E55C6D5C280E1F3D00BD504F /* AppDelegate.swift in Sources */,
 				E5ED48A228210F6600F0E09F /* UIView.swift in Sources */,
 				E55C6D5E280E1F3D00BD504F /* SceneDelegate.swift in Sources */,
 				E55C6D8F280E4E9000BD504F /* LetterView.swift in Sources */,
-				E5F5D8F2283FF51A000C76CE /* BoardCollectionViewController.swift in Sources */,
 				E59643A0283A530900F9B65B /* KeyboardButton.swift in Sources */,
 				E5ED489E28210E1200F0E09F /* TitleView.swift in Sources */,
 				E5BA5CC62822224800B4F99C /* Screen.swift in Sources */,
