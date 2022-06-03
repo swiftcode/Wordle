@@ -12,7 +12,9 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
     var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
-        layout.sectionInset = UIEdgeInsets(top: 0.0, left: 10.0, bottom: 0.0, right: 10.0)
+        layout.sectionInset = UIEdgeInsets(top: 0.0, left: 25.0, bottom: 0.0, right: 25.0)
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 4
 
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
