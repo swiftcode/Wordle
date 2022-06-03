@@ -43,8 +43,6 @@ class LetterView: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        backgroundColor = .blue
-
         setupView()
         setupLayout()
         setupActions()
@@ -62,6 +60,8 @@ class LetterView: UITextField {
         adjustsFontForContentSizeCategory = true
         backgroundColor = .white
         borderStyle = .line
+        layer.borderColor = UIColor(named: "lightGrey")?.cgColor
+        layer.borderWidth = 1.0
         textAlignment = .center
     }
 
