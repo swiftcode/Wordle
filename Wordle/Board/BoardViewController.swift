@@ -39,6 +39,9 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
         collectionView.register(HeaderView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: HeaderView.identifier)
+        collectionView.register(FooterView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                                withReuseIdentifier: FooterView.identifier)
         view.addSubview(collectionView)
     }
 
@@ -52,28 +55,45 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoardCell.identifier,
                                                       for: indexPath) as! BoardCell
 
-
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 
-        let itemSize = CGSize(width: (Screen.width / 6),
-                              height: 60)
+        //TODO: - Conditional sizing based on device real-estate
+
+        let itemWidth = Screen.width / 6
+        let itemSize = CGSize(width: itemWidth,
+                              height: itemWidth)
         return itemSize
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(
-            ofKind: UICollectionView.elementKindSectionHeader,
-            withReuseIdentifier: HeaderView.identifier,
-            for: indexPath) as! HeaderView
 
-        header.configure()
-        return header
+        if kind == UICollectionView.elementKindSectionHeader {
+            let header = collectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionHeader,
+                withReuseIdentifier: HeaderView.identifier,
+                for: indexPath) as! HeaderView
+
+            header.configure()
+            return header
+        } else {
+            let footer = collectionView.dequeueReusableSupplementaryView(
+                ofKind: UICollectionView.elementKindSectionFooter,
+                withReuseIdentifier: FooterView.identifier,
+                for: indexPath) as! FooterView
+
+            footer.configure()
+            return footer
+        }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: Screen.width, height: 60.0)
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return CGSize(width: 40.0, height: 90.0)
     }
 }

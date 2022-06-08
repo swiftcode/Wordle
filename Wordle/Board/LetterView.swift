@@ -44,8 +44,6 @@ class LetterView: UITextField {
         super.init(frame: frame)
 
         setupView()
-        setupLayout()
-        setupActions()
     }
 
     required init?(coder: NSCoder) {
@@ -63,14 +61,6 @@ class LetterView: UITextField {
         layer.borderColor = UIColor(named: "lightGrey")?.cgColor
         layer.borderWidth = 1.0
         textAlignment = .center
-    }
-
-    private func setupLayout() {
-
-    }
-
-    private func setupActions() {
-
     }
 
     func setFontColor(to guess: GuessValue) {
