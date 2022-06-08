@@ -49,4 +49,12 @@ class KeyboardButton: UIButton {
                 setFontColor(to: .initial)
         }
     }
+
+    func setTitleText(to text: String) {
+        setTitle(text, for: .normal)
+    }
+
+    func setButtonSystemImage(to systemImage: String) {
+        setImage(UIImage(systemName: systemImage), for: .normal)
+    }
 }

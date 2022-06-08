@@ -10,6 +10,7 @@
 		E500296C283C8A4700D8BE71 /* KeyboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500296B283C8A4700D8BE71 /* KeyboardCell.swift */; };
 		E500296D283C8A4700D8BE71 /* KeyboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500296B283C8A4700D8BE71 /* KeyboardCell.swift */; };
 		E508BEA928233AA30040372E /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E508BEA828233AA30040372E /* UIFont.swift */; };
+		E50AE120284ADC5E00005360 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50AE11F284ADC5E00005360 /* FooterView.swift */; };
 		E51BE1FB2813ADF8007010D9 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E51BE1FA2813ADF8007010D9 /* Color.xcassets */; };
 		E51E97422829043700797078 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E97412829043700797078 /* BoardCell.swift */; };
 		E52F7CD228374D80009BED27 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = E52F7CD128374D80009BED27 /* words.txt */; };
@@ -55,6 +56,7 @@
 /* Begin PBXFileReference section */
 		E500296B283C8A4700D8BE71 /* KeyboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCell.swift; sourceTree = "<group>"; };
 		E508BEA828233AA30040372E /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		E50AE11F284ADC5E00005360 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		E51BE1FA2813ADF8007010D9 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		E51E97412829043700797078 /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
 		E52F7CD128374D80009BED27 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 				E55C6D8E280E4E9000BD504F /* LetterView.swift */,
 				E5ED489D28210E1200F0E09F /* TitleView.swift */,
 				E5B3F4A028497884009F003D /* HeaderView.swift */,
+				E50AE11F284ADC5E00005360 /* FooterView.swift */,
 				E55DBC772835B42F0082ADE7 /* BoardViewController.swift */,
 				E51E97412829043700797078 /* BoardCell.swift */,
 			);
@@ -358,6 +361,7 @@
 				E51E97422829043700797078 /* BoardCell.swift in Sources */,
 				E55C6D60280E1F3D00BD504F /* ViewController.swift in Sources */,
 				E5B3F4A128497884009F003D /* HeaderView.swift in Sources */,
+				E50AE120284ADC5E00005360 /* FooterView.swift in Sources */,
 				E55C6D5C280E1F3D00BD504F /* AppDelegate.swift in Sources */,
 				E5ED48A228210F6600F0E09F /* UIView.swift in Sources */,
 				E55C6D5E280E1F3D00BD504F /* SceneDelegate.swift in Sources */,
