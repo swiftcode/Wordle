@@ -7,15 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E500296C283C8A4700D8BE71 /* KeyboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500296B283C8A4700D8BE71 /* KeyboardCell.swift */; };
-		E500296D283C8A4700D8BE71 /* KeyboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E500296B283C8A4700D8BE71 /* KeyboardCell.swift */; };
 		E508BEA928233AA30040372E /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = E508BEA828233AA30040372E /* UIFont.swift */; };
 		E50AE120284ADC5E00005360 /* FooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E50AE11F284ADC5E00005360 /* FooterView.swift */; };
 		E51BE1FB2813ADF8007010D9 /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E51BE1FA2813ADF8007010D9 /* Color.xcassets */; };
 		E51E97422829043700797078 /* BoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E51E97412829043700797078 /* BoardCell.swift */; };
 		E52F7CD228374D80009BED27 /* words.txt in Resources */ = {isa = PBXBuildFile; fileRef = E52F7CD128374D80009BED27 /* words.txt */; };
 		E52F7CD528374F1D009BED27 /* Words.swift in Sources */ = {isa = PBXBuildFile; fileRef = E52F7CD428374F1D009BED27 /* Words.swift */; };
-		E53975492838F25B00306557 /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E53975482838F25B00306557 /* KeyboardView.swift */; };
 		E55C6D5C280E1F3D00BD504F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C6D5B280E1F3D00BD504F /* AppDelegate.swift */; };
 		E55C6D5E280E1F3D00BD504F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C6D5D280E1F3D00BD504F /* SceneDelegate.swift */; };
 		E55C6D60280E1F3D00BD504F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C6D5F280E1F3D00BD504F /* ViewController.swift */; };
@@ -28,9 +25,10 @@
 		E55C6D8F280E4E9000BD504F /* LetterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55C6D8E280E4E9000BD504F /* LetterView.swift */; };
 		E55DBC782835B42F0082ADE7 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55DBC772835B42F0082ADE7 /* BoardViewController.swift */; };
 		E55DBC792835B42F0082ADE7 /* BoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E55DBC772835B42F0082ADE7 /* BoardViewController.swift */; };
-		E59643A0283A530900F9B65B /* KeyboardButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E596439F283A530900F9B65B /* KeyboardButton.swift */; };
 		E5B3F4A128497884009F003D /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5B3F4A028497884009F003D /* HeaderView.swift */; };
 		E5BA5CC62822224800B4F99C /* Screen.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5BA5CC52822224800B4F99C /* Screen.swift */; };
+		E5D683F628511731002AF80C /* KeyboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D683F428511731002AF80C /* KeyboardView.swift */; };
+		E5D683F728511731002AF80C /* KeyboardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5D683F528511731002AF80C /* KeyboardCell.swift */; };
 		E5ED489E28210E1200F0E09F /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED489D28210E1200F0E09F /* TitleView.swift */; };
 		E5ED489F28210E1200F0E09F /* TitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED489D28210E1200F0E09F /* TitleView.swift */; };
 		E5ED48A228210F6600F0E09F /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5ED48A128210F6600F0E09F /* UIView.swift */; };
@@ -54,14 +52,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E500296B283C8A4700D8BE71 /* KeyboardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardCell.swift; sourceTree = "<group>"; };
 		E508BEA828233AA30040372E /* UIFont.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		E50AE11F284ADC5E00005360 /* FooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FooterView.swift; sourceTree = "<group>"; };
 		E51BE1FA2813ADF8007010D9 /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 		E51E97412829043700797078 /* BoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardCell.swift; sourceTree = "<group>"; };
 		E52F7CD128374D80009BED27 /* words.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = words.txt; sourceTree = "<group>"; };
 		E52F7CD428374F1D009BED27 /* Words.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Words.swift; sourceTree = "<group>"; };
-		E53975482838F25B00306557 /* KeyboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
 		E55C6D58280E1F3D00BD504F /* Wordle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wordle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E55C6D5B280E1F3D00BD504F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E55C6D5D280E1F3D00BD504F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -77,9 +73,10 @@
 		E55C6D7E280E1F3F00BD504F /* WordleUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordleUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E55C6D8E280E4E9000BD504F /* LetterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterView.swift; sourceTree = "<group>"; };
 		E55DBC772835B42F0082ADE7 /* BoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardViewController.swift; sourceTree = "<group>"; };
-		E596439F283A530900F9B65B /* KeyboardButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardButton.swift; sourceTree = "<group>"; };
 		E5B3F4A028497884009F003D /* HeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		E5BA5CC52822224800B4F99C /* Screen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Screen.swift; sourceTree = "<group>"; };
+		E5D683F428511731002AF80C /* KeyboardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardView.swift; sourceTree = "<group>"; };
+		E5D683F528511731002AF80C /* KeyboardCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyboardCell.swift; sourceTree = "<group>"; };
 		E5ED489D28210E1200F0E09F /* TitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleView.swift; sourceTree = "<group>"; };
 		E5ED48A128210F6600F0E09F /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -128,9 +125,8 @@
 		E53975472838F22500306557 /* Keyboard */ = {
 			isa = PBXGroup;
 			children = (
-				E53975482838F25B00306557 /* KeyboardView.swift */,
-				E500296B283C8A4700D8BE71 /* KeyboardCell.swift */,
-				E596439F283A530900F9B65B /* KeyboardButton.swift */,
+				E5D683F528511731002AF80C /* KeyboardCell.swift */,
+				E5D683F428511731002AF80C /* KeyboardView.swift */,
 			);
 			path = Keyboard;
 			sourceTree = "<group>";
@@ -356,20 +352,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E53975492838F25B00306557 /* KeyboardView.swift in Sources */,
-				E500296C283C8A4700D8BE71 /* KeyboardCell.swift in Sources */,
 				E51E97422829043700797078 /* BoardCell.swift in Sources */,
 				E55C6D60280E1F3D00BD504F /* ViewController.swift in Sources */,
+				E5D683F728511731002AF80C /* KeyboardCell.swift in Sources */,
 				E5B3F4A128497884009F003D /* HeaderView.swift in Sources */,
 				E50AE120284ADC5E00005360 /* FooterView.swift in Sources */,
 				E55C6D5C280E1F3D00BD504F /* AppDelegate.swift in Sources */,
 				E5ED48A228210F6600F0E09F /* UIView.swift in Sources */,
 				E55C6D5E280E1F3D00BD504F /* SceneDelegate.swift in Sources */,
 				E55C6D8F280E4E9000BD504F /* LetterView.swift in Sources */,
-				E59643A0283A530900F9B65B /* KeyboardButton.swift in Sources */,
 				E5ED489E28210E1200F0E09F /* TitleView.swift in Sources */,
 				E5BA5CC62822224800B4F99C /* Screen.swift in Sources */,
 				E52F7CD528374F1D009BED27 /* Words.swift in Sources */,
+				E5D683F628511731002AF80C /* KeyboardView.swift in Sources */,
 				E508BEA928233AA30040372E /* UIFont.swift in Sources */,
 				E55DBC782835B42F0082ADE7 /* BoardViewController.swift in Sources */,
 			);
@@ -380,7 +375,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E55C6D73280E1F3F00BD504F /* WordleTests.swift in Sources */,
-				E500296D283C8A4700D8BE71 /* KeyboardCell.swift in Sources */,
 				E5ED489F28210E1200F0E09F /* TitleView.swift in Sources */,
 				E55DBC792835B42F0082ADE7 /* BoardViewController.swift in Sources */,
 			);

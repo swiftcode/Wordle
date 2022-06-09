@@ -22,6 +22,6 @@ class FooterView: UICollectionReusableView {
 
     override func layoutSubviews() {
         super.layoutSubviews()
-        keyboardView.addConstraint(topAnchor: topAnchor, leadingAnchor: leadingAnchor, trailingAnchor: trailingAnchor, bottomAnchor: nil, paddingTop: 20.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: 120.0)
+        keyboardView.addConstraint(topAnchor: topAnchor, leadingAnchor: leadingAnchor, trailingAnchor: trailingAnchor, bottomAnchor: nil, paddingTop: 20.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: 200.0)
     }
 }
