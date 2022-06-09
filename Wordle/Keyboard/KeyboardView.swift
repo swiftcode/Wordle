@@ -108,7 +108,7 @@ class KeyboardView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         left = inset
         right = inset
 
-        return UIEdgeInsets(top: 2, left: left, bottom: 2, right: right)
+        return UIEdgeInsets(top: 3.5, left: left, bottom: 3.5, right: right)
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -27,6 +27,8 @@ class KeyboardCell: UICollectionViewCell {
         self.key.setTitleColor(.black, for: .normal)
 
         key.addTarget(self, action: #selector(keyTapped(sender:)), for: .touchUpInside)
+
+        addShadow()
     }
 
     required init?(coder: NSCoder) {
