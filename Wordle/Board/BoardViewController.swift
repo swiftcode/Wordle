@@ -19,16 +19,33 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.translatesAutoresizingMaskIntoConstraints = false
         return collection
-   }()
+    }()
+
+    var keyboardView: KeyboardView = {
+        let view = KeyboardView(frame: .zero)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCollectionView()
+        setupView()
+        setupLayout()
     }
 
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         collectionView.frame = view.bounds
+    }
+
+    private func setupView() {
+        view.addSubview(keyboardView)
+    }
+
+    private func setupLayout() {
+        collectionView.addConstraint(topAnchor: view.topAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, bottomAnchor: nil, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: Screen.height * 0.70)
+        keyboardView.addConstraint(topAnchor: collectionView.bottomAnchor, leadingAnchor: view.leadingAnchor, trailingAnchor: view.trailingAnchor, bottomAnchor: view.bottomAnchor, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: 0.0)
     }
 
     func configureCollectionView() {
@@ -39,9 +56,6 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
         collectionView.register(HeaderView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: HeaderView.identifier)
-        collectionView.register(FooterView.self,
-                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
-                                withReuseIdentifier: FooterView.identifier)
         view.addSubview(collectionView)
     }
 
@@ -54,8 +68,16 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoardCell.identifier,
                                                       for: indexPath) as! BoardCell
+        cell.isUserInteractionEnabled = true
+        cell.letter.addShadow()
+        cell.letter.animateFlip()
 
         return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoardCell.identifier,
+                                                      for: indexPath) as! BoardCell
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -79,21 +101,11 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
             header.configure()
             return header
         } else {
-            let footer = collectionView.dequeueReusableSupplementaryView(
-                ofKind: UICollectionView.elementKindSectionFooter,
-                withReuseIdentifier: FooterView.identifier,
-                for: indexPath) as! FooterView
-
-            footer.configure()
-            return footer
+            return UICollectionReusableView()
         }
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: Screen.width, height: 60.0)
-    }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: 40.0, height: 90.0)
     }
 }

@@ -106,7 +106,7 @@ class LetterView: UITextField {
         }
 
         UIView.transition(with: self,
-                          duration: 0.4,
+                          duration: 3.0,
                           options: .transitionFlipFromBottom,
                           animations: nil,
                           completion: { _ in

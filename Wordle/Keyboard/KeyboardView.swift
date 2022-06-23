@@ -22,6 +22,7 @@ class KeyboardView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     var stackView = UIStackView()
 
     let keyboardLayers = ["QWERTYUIOP", "ASDFGHJKL", "_ZXCVBNM_"]
+    //let keyboardLayers = ["QWERTYUIOPASDFGHJKL_ZXCVBNM_", "ZX"]
 
     //MARK: - Initialization
     override init(frame: CGRect) {
@@ -61,6 +62,9 @@ class KeyboardView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: KeyboardCell.identifier, for: indexPath) as! KeyboardCell
 
+        cell.bringSubviewToFront(cell.key)
+        cell.setupActions()
+        
         let section = indexPath.section
         let row = indexPath.row
         let keys = keyboardLayers[section]
@@ -78,6 +82,7 @@ class KeyboardView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
             }
         }
 
+        cell.setupActions()
         return cell
     }
 
@@ -102,7 +107,6 @@ class KeyboardView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         let margin: CGFloat = 30
         let size: CGFloat = (collectionView.frame.size.width - margin) / 10
         let count: CGFloat = CGFloat(collectionView.numberOfItems(inSection: section))
-
         let inset: CGFloat = (collectionView.frame.size.width - (size * count) - (2 * count)) / 2
 
         left = inset
@@ -114,11 +118,10 @@ class KeyboardView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! KeyboardCell
 
-        print("selected key: \(String(describing: cell.key.titleLabel))")
-
         let section = indexPath.section
         let row = indexPath.row
-
-        print("selected:-> \(section):\(row)")
+        let keys = keyboardLayers[section]
+        let currentKey = String(Array(keys)[row])
+        print("didSelectItem: \(currentKey)")
     }
 }
