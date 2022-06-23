@@ -176,3 +176,27 @@ extension UIView {
         }
     }
 }
+
+extension UIView {
+    func addShadow(){
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOpacity = 0.5
+        self.layer.shadowRadius = 2.0
+        self.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        self.clipsToBounds = false
+    }
+
+    func addShadow(radius: CGFloat, offset: CGSize) {
+        self.addShadow()
+        self.layer.shadowRadius = radius
+        self.layer.shadowOffset = offset
+    }
+
+    func addBottomShadow() {
+        self.layer.shadowRadius = 4
+        self.layer.shadowOpacity = 1
+        self.layer.shadowColor = UIColor.black.cgColor
+        self.layer.shadowOffset = CGSize(width: 0 , height:2)
+        self.layer.masksToBounds = false
+    }
+}

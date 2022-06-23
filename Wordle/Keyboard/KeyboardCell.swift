@@ -21,11 +21,16 @@ class KeyboardCell: UICollectionViewCell {
     //MARK: - Initialization
     override init(frame: CGRect) {
         super.init(frame: frame)
-        addSubview(key)
+        contentView.addSubview(key)
 
         key.addConstraint(topAnchor: topAnchor, leadingAnchor: leadingAnchor, trailingAnchor: trailingAnchor, bottomAnchor: bottomAnchor, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: 0.0)
         self.key.setTitleColor(.black, for: .normal)
 
+        contentView.isUserInteractionEnabled = false
+        addShadow()
+    }
+
+    func setupActions() {
         key.addTarget(self, action: #selector(keyTapped(sender:)), for: .touchUpInside)
     }
 
@@ -39,8 +44,8 @@ class KeyboardCell: UICollectionViewCell {
     }
 
     @objc func keyTapped(sender: UIButton) {
-        if let label = sender.titleLabel?.text {
-            print("tapped \(String(describing: label))")
-        }
+        guard let label = sender.titleLabel?.text else { return }
+        print("sender: \(sender) \(label) ||| \(String(describing: sender.titleLabel))")
+        print("tapped \(String(describing: label))")
     }
 }

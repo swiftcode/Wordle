@@ -14,7 +14,7 @@ class BoardCell: UICollectionViewCell {
     var letter: LetterView = {
         let view = LetterView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.isUserInteractionEnabled = false
+        view.isUserInteractionEnabled = true
         return view
     }()
 
