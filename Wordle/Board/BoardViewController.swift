@@ -41,6 +41,12 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     private func setupView() {
         view.addSubview(keyboardView)
+        lockRow(row: 1)
+        lockRow(row: 2)
+        lockRow(row: 3)
+        lockRow(row: 4)
+        lockRow(row: 5)
+        lockRow(row: 6)
     }
 
     private func setupLayout() {
@@ -70,7 +76,6 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
                                                       for: indexPath) as! BoardCell
         cell.isUserInteractionEnabled = true
         cell.letter.addShadow()
-        cell.letter.animateFlip()
 
         return cell
     }
@@ -107,5 +112,17 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: Screen.width, height: 60.0)
+    }
+
+    //MARK: - Custom methods
+    func lockRow(row: Int) {
+        let lowerLimit = (row * 5) - 5
+        let upperLimit = (row * 5) - 1
+
+        print("locking cells: \(lowerLimit) to \(upperLimit)")
+    }
+
+    func rowLocked(row: Int) -> Bool {
+        return false
     }
 }

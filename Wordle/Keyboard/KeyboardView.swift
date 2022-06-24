@@ -50,12 +50,10 @@ class KeyboardView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
 
     //MARK: - CollectionView Delegates
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        print("number of sections: \(keyboardLayers.count)")
         return keyboardLayers.count
     }
 
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print("number of items in section: \(keyboardLayers[section].count)")
         return keyboardLayers[section].count
     }
 
