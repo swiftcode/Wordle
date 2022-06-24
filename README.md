@@ -12,5 +12,5 @@ This list came from https://www-cs-faculty.stanford.edu/~knuth/sgb-words.txt
 
 The beta version is as close to the original as possible.  Some changes have been implemented, such as small differences in the UI.  
 
-Future features will be changes in animation, difficulty levels and themes, to name a few.
+Future features will include changes in animation, difficulty levels and themes, to name a few.
 
