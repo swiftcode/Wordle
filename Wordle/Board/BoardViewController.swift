@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BoardViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class BoardViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, SendKeyDelegate {
 
     var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -29,6 +29,9 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        keyboardView.delegate = self
+
         configureCollectionView()
         setupView()
         setupLayout()
@@ -74,15 +77,17 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
 
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoardCell.identifier,
                                                       for: indexPath) as! BoardCell
-        cell.isUserInteractionEnabled = true
         cell.letter.addShadow()
 
         return cell
     }
 
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: BoardCell.identifier,
-                                                      for: indexPath) as! BoardCell
+        let cell = collectionView.cellForItem(at: IndexPath(row: indexPath.row, section: indexPath.section)) as! BoardCell
+
+        print("did Select... \(indexPath.row)")
+        let letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+        cell.letter.text = String((0..<1).map{ _ in letters.randomElement()! })
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -115,6 +120,12 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
 
     //MARK: - Custom methods
+    func sendKey(key: String) {
+        if let cell = collectionView.cellForItem(at: IndexPath(row: 0, section: 0)) as? BoardCell {
+            cell.letter.text = key
+        }
+    }
+
     func lockRow(row: Int) {
         let lowerLimit = (row * 5) - 5
         let upperLimit = (row * 5) - 1
@@ -122,7 +133,7 @@ class BoardViewController: UIViewController, UICollectionViewDelegate, UICollect
         print("locking cells: \(lowerLimit) to \(upperLimit)")
     }
 
-    func rowLocked(row: Int) -> Bool {
+    func rowIsLocked(row: Int) -> Bool {
         return false
     }
 }

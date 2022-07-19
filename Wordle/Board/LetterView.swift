@@ -61,6 +61,8 @@ class LetterView: UITextField {
         layer.borderColor = UIColor(named: "lightGrey")?.cgColor
         layer.borderWidth = 1.0
         textAlignment = .center
+        isUserInteractionEnabled = false
+        isEnabled = false
     }
 
     func setFontColor(to guess: GuessValue) {

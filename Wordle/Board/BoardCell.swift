@@ -41,6 +41,8 @@ class BoardCell: UICollectionViewCell {
         letter.addConstraint(topAnchor: topAnchor, leadingAnchor: leadingAnchor, trailingAnchor: trailingAnchor, bottomAnchor: bottomAnchor, paddingTop: 0.0, paddingLeft: 0.0, paddingRight: 0.0, paddingBottom: 0.0, width: 0.0, height: 0.0)
     }
 
+    
+
     //MARK: - Methods
     func setLock(to lockStatus: Bool) {
         locked = lockStatus

@@ -6,7 +6,13 @@
 
 import UIKit
 
+protocol SendKeyDelegate: AnyObject {
+    func sendKey(key: String)
+}
+
 class KeyboardView: UIView, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+
+    weak var delegate: SendKeyDelegate?
 
     var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -121,5 +127,6 @@ class KeyboardView: UIView, UICollectionViewDelegate, UICollectionViewDataSource
         let keys = keyboardLayers[section]
         let currentKey = String(Array(keys)[row])
         print("didSelectItem: \(currentKey)")
+        delegate?.sendKey(key: currentKey)
     }
 }
